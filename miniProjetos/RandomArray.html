@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>Title</title>
+    </head>
+
+    <body>
+
+        <label for="">Digite um número de elementos para um array: </label>
+        <input type="text" id="value"> <br>
+        <label for="">Digite um range de valores para o array: </label>
+        <input type="text" id="values"> <br>
+        <button id="enviar">enviar</button> <br>
+        <label for="" id="array"></label> <br>
+        <label for="" id="maior"></label>
+        
+        <script>
+            document.getElementById("enviar").onclick = function (){
+                let n = Number(document.getElementById("value").value);
+                let k = Number(document.getElementById("values").value);
+                let nums = [];
+
+                for(let i=0; i < n; i++){
+                    nums[i] = Math.floor(Math.random()*k + 1);
+                }
+
+                document.getElementById("array").innerHTML = "[" + nums + "] <br>";
+
+                document.getElementById("maior").innerHTML = Maior(nums, 0, nums.length-1) + "<br>";
+            }
+
+            function Maior(A, i, f){
+                if(i == f) return A[i];
+
+                let meio = Math.floor(i + (f-i)/2);
+
+                let a = Maior(A, i, meio);
+                let b = Maior(A, meio+1, f);
+
+                if(a < b) return b;
+                else return a;
+            }
+        </script>
+    </body>
+</html>
