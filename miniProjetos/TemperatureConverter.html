@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>temperature converter</title>
+    </head>
+
+    <body>
+
+        <label>Enter a temperature: </label>
+        <input type="text" id="tempInput"> <br>
+        <label for="">Convert to: </label> <br>
+        <input type="radio" name="Temp" id="cTemp">
+        <label for="">Celcius</label> <br>
+        <input type="radio" name="Temp" id="fTemp">
+        <label for="">Fahrenheit</label> <br>
+        <button id="convert">convert</button> <br>
+
+        <h2 id="resposta"></h2>
+
+        
+        <script>
+            document.getElementById("convert").onclick = function() {
+                let temp = Number(document.getElementById("tempInput").value);
+
+                if(document.getElementById("cTemp").checked){
+                    document.getElementById("resposta").innerHTML = toCelcius(temp) + "°C";
+                } else if(document.getElementById("fTemp").checked){
+                    document.getElementById("resposta").innerHTML = toFahrenheit(temp) + "°F";
+                } else{
+                    document.getElementById("resposta").innerHTML = "You did not select any";
+
+                }
+            }
+
+            function toCelcius(t) {
+                return (t-32) * (5/9);
+            }
+
+            function toFahrenheit(t){
+                return (t * 9/5) + 32;
+            }
+        </script>
+    </body>
+</html>

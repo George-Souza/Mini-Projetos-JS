@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Joga dados</title>
+
+    </head>
+    <body>
+        <table border="0" align="center">
+            <tr>
+                <td>
+                    <h2 id="resultado" style="display: block; text-align: center;"></h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Digite um valor de dado:</label>
+                    <input type="text" name="" id="faces"> 
+                    <button id="button">enviar</button>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            document.getElementById("button").onclick = function(){
+                document.getElementById("resultado").innerHTML = "Valor obtido: "+ 
+                Math.floor(Math.random() * Number(document.getElementById("faces").value) + 1);
+            }
+        </script>
+    </body>
+</html>
